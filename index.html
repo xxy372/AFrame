@@ -10,6 +10,12 @@
     <script src="playm1.js"></script>
     <script src="playm2.js"></script>
     <script src="playm3.js"></script>
+    <script src="nextbutton.js"></script>
+    <script src="showbutton1.js"></script>    
+    <script src="showbutton2.js"></script>
+    <script src="showbutton3.js"></script>
+
+
   </head>
   <body>
     <a-scene>
@@ -20,7 +26,7 @@
                 <a-cursor id="cursor" raycaster cursor="rayOrigin: mouse; fuse: false;"></a-cursor>
             </a-entity>
         </a-entity>
-    
+
         <!-- <a-assets>
             <a-asset-item id="I" src="number/scene.gltf"></a-asset-item>
         </a-assets> -->
@@ -32,23 +38,312 @@
             text="value: I">
         </a-entity> -->
 
-        <a-sphere id="1" color="green" radius="0.5" position="-6 2 -6" playm1></a-sphere>
-        <a-sphere id="2" color="black" radius="0.5" position="0 2 -6" playm2></a-sphere>
-        <a-sphere id="3" color="red" radius="0.5" position="6 2 -6" playm3></a-sphere>
+        <a-sphere id="1" color="green" radius="0.5" position="-6 2 -6" playm1 showbutton1></a-sphere>
+        <a-sphere id="2" color="black" radius="0.5" position="0 2 -6" playm2 showbutton2></a-sphere>
+        <a-sphere id="3" color="red" radius="0.5" position="6 2 -6" playm3 showbutton3></a-sphere>
 
-        <!-- text -->        
+        <!-- text -->
         <a-plane id="textbg2" position="0 3.5 -6" rotation="180 180 0" width="5.5" height="1" color="#000" opacity="0.9"></a-plane>
         <a-plane id="textbg1" position="-6 3.5 -6" rotation="180 180 0" width="5" height="1" color="#000" opacity="0.9"></a-plane>
         <a-plane id="textbg3" position="6 3.5 -6" rotation="180 180 0" width="6" height="1" color="#000" opacity="0.9"></a-plane>
-        
-        <a-text id="text1" value="Episode I: Introduction" scale="2 2 1" position="-6 3.5 -6" color="#ffffff" align="center"></a-text>
+
+        <a-text id="text1" value="Episode I: Introduction" scale="2 2 2" position="-6 3.5 -6" color="#ffffff" align="center"></a-text>
         <a-text id="text2" value="Episode II: Augurs of Spring" scale="2 2 1" position="0 3.5 -6" color="#ffffff" align="center"></a-text>
         <a-text id="text3" value="Episode III: Ritual of Abduction" scale="2 2 1" position="6 3.5 -6" color="#ffffff" align="center"></a-text>
 
+        <!-- Intro -->
+        <a-entity
+          id="intro1"
+          text="
+            value:Welcome to this imaginary concert hall
+            we will be playing the first three episodes of
+            Stravinsky's The Rite of Spring
 
-        <!-- Sky Background -->
+            Use W A S D to move around
+            Drag anywhere to move the camera;
+            color:#ffffff;
+            wrapCount:40;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:0.4;"
+          scale="3 3 3 "
+          position="0 -1 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;" 
+        >
+        </a-entity>
+
+        <a-entity
+          id="intro2"
+          text="
+            value:If you would like to learn more about 
+            The Rite of Spring,
+            Click the 'Next' button to learn more,
+            if not, feel free to click on the balls above,
+            they will bring you to the visual world of 
+            Stravinsky's music. Hope the scenes will
+            help you to better understand Stravinsky,
+            and this great musical piece.
+            Enjoy the 'concert'!;
+            color:#ffffff;
+            wrapCount:40;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:0.5;"
+          scale="3 3 3 "
+          position="0 -1 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false" 
+        >
+        </a-entity>
+
+        <a-entity
+          id="intro3"
+          text="
+            value:The Rite of Spring is a ballet and orchestral 
+            concert work by the Russian composer Igor Stravinsky. 
+            Although designed as a work for the stage, with 
+            specific passages accompanying characters and action, 
+            the music achieved equal if not greater recognition 
+            as a concert piece and is widely considered to be 
+            one of the most influential musical works of the 
+            20th century.;
+            color:#ffffff;
+            wrapCount:45;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:0.5;"
+          scale="4 4 4 "
+          position="0 -1 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false" 
+        >
+        </a-entity>
+
+        <a-entity
+          id="intro4"
+          text="
+            value:Stravinsky's score contains many 
+            novel features for its time, including 
+            experiments in tonality, metre, rhythm, 
+            stress and dissonance. Analysts have 
+            noted in the score a significant grounding 
+            in Russian folk music, a relationship 
+            Stravinsky tended to deny. Regarded as 
+            among the first modernist works, the music 
+            influenced many of the 20th-century's 
+            leading composers and is one of the most 
+            recorded works in the classical repertoire.;
+            color:#ffffff;
+            wrapCount:40;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:0.7;"
+          scale="4 4 4"
+          position="0 -1 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false" 
+        >
+        </a-entity>
+
+        <!-- Next Button -->
+        <a-entity
+          id="next"
+          text="
+            value:Next;
+            color:#ffffff;
+            wrapCount:4;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="0.5 0.5 0.5"
+          position="3 -1 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          nextbutton
+        >
+        </a-entity>
+
+        <!-- Ep1 Text -->
+        <a-entity
+          id="ep1_1"
+          text="
+            value:
+            As winter loosened its grip on rural Russia, 
+            the countryside awakened. Melting snow revealed 
+            patches of green, while the air softened and warmed. 
+            Animals emerged from hibernation, and birds 
+            returned with their songs. In this season of renewal, 
+            nature and people alike embraced the promise of spring, 
+            shedding the weight of winter for the lightness 
+            of new beginnings.;
+            color:#ffffff;
+            wrapCount:45;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:0.5;"
+          scale="4 4 4"
+          position="-6 -1.5 -4"
+          rotation="-50 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+        >
+        </a-entity>
+
+        <!-- Show Button1 -->
+        <a-entity
+          id="showbutton1"
+          text="
+            value:Click to view the story;
+            color:#ffffff;
+            wrapCount:20;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="3 3 3"
+          position="-6 0 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+          showbutton1
+        >
+        </a-entity>
+
+        <!-- Ep2 Text -->
+        <a-entity
+          id="ep2"
+          text="
+            value:
+            As the thawing snow signaled the arrival of spring, 
+            a pagan tribe gathered atop a hill, their feet 
+            pounding the earth in anticipation of the sacred 
+            ritual about to unfold.
+
+            In the second scene, the haunting bassoon echoed 
+            the presence of an elder lady, a revered fortune 
+            teller, joining the ceremony with wisdom and mystique.
+
+            Then, a folk tune emerged, signaling the approach 
+            of a group of young girls, chosen for a sacred duty. 
+            Drumbeats filled the air as the elders presented 
+            one girl to the community, knowing her sacrifice 
+            would ensure the earth's renewal. As she danced, 
+            the villagers watched with reverence, feeling hope 
+            bloom amidst tradition and solemnity, ensuring a 
+            prosperous future for their village.;
+            color:#ffffff;
+            wrapCount:45;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="5 5 5"
+          position="0 -3 -4"
+          rotation="-60 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+        >
+        </a-entity>
+
+        <!-- Show Button2 -->
+        <a-entity
+          id="showbutton2"
+          text="
+            value:Click to view the story;
+            color:#ffffff;
+            wrapCount:20;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="3 3 3"
+          position="0 0 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+          showbutton2
+        >
+        </a-entity>
+
+        <!-- Ep3 Text -->
+        <a-entity
+          id="ep3"
+          text="
+            value:
+            In the next part of the sacred ritual, 
+            known as the 'Ritual of Abduction,' 
+            the tribe engaged in a ceremonial game. 
+            With drumbeats echoing through the air, 
+            the tribesmen hunted the young woman 
+            chosen for her pivotal role.
+
+            Amidst the swirling dancers and tense 
+            atmosphere, the woman embodied the 
+            conflicting emotions of fear and acceptance. 
+            Her every movement spoke of the tribe's 
+            deep connection to the eternal cycle of 
+            life and death, as they engaged in this 
+            symbolic act of sacrifice and renewal.;
+            color:#ffffff;
+            wrapCount:45;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="4 4 4"
+          position="6 -1.5 -4"
+          rotation="-50 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+        >
+        </a-entity>
+
+        <!-- Show Button3 -->
+        <a-entity
+          id="showbutton3"
+          text="
+            value:Click to view the story;
+            color:#ffffff;
+            wrapCount:20;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="3 3 3"
+          position="6 0 -4"
+          rotation="-30 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+          showbutton3
+        >
+        </a-entity>
+
+        <!-- end Text -->
+        <a-entity
+          id="end"
+          text="
+            value:
+            Thank you for listening!
+            Hope these scenes shed some light
+            on this great piece for you!;
+            color:#ffffff;
+            wrapCount:30;
+            align:center;
+          "
+          geometry="primitive:plane;width:auto;height:auto;"
+          scale="5 5 5"
+          position="0 -1 -4"
+          rotation="-40 0 0"
+          material="color: #000; opacity:0.9;"
+          visible="false"
+        >
+        </a-entity>
+
+
+
+
+        <!-- Sky -->
         <a-sky src="img/open.png" rotation="0 -90 0" raycaster-enabled="false"></a-sky>
-    
+
     </a-scene>
   </body>
 </html>

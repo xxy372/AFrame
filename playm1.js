@@ -6,6 +6,14 @@ AFRAME.registerComponent('playm1', {
         let startTime = 0; // Variable to store the start time of the music
         let timer = null; // Variable to store the timer
 
+        // Get references to the intro entities
+        var intro1 = document.querySelector('#intro1');
+        var intro2 = document.querySelector('#intro2');
+        var intro3 = document.querySelector('#intro3');
+        var intro4 = document.querySelector('#intro4');
+        var nextButton = document.querySelector('#next');
+
+
         // Function to add or remove sound based on its state
         this.toggleSound = function(){
             // If sound is playing, pause it and remove the sound element
@@ -37,9 +45,25 @@ AFRAME.registerComponent('playm1', {
                     }
                 });
             }
+            if (intro1.getAttribute('visible')) {
+                intro1.setAttribute('visible', false);
+                nextButton.setAttribute('visible', false);
+              } else if (intro2.getAttribute('visible')) {
+                intro2.setAttribute('visible', false);
+                nextButton.setAttribute('visible', false);
+              } else if (intro3.getAttribute('visible')) {
+                intro3.setAttribute('visible', false);
+                nextButton.setAttribute('visible', false);
+              } else if (intro4.getAttribute('visible')) {
+                intro4.setAttribute('visible', false);
+                // Hide the Next button after showing all intros
+                nextButton.setAttribute('visible', false);
+              }
         };
 
         // Event listener for click event
         el.addEventListener('click', this.toggleSound);
+
+        
     }
 });
