@@ -27,6 +27,7 @@ AFRAME.registerComponent('showbutton2', {
         }else if(el.id ==='2' && showbutton.getAttribute('visible')){
             console.log('hide showbutton');
             showbutton.setAttribute('visible', false);
+            ep2.setAttribute('visible', false);
         }
       });
     }
